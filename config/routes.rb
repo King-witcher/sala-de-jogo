@@ -1,0 +1,12 @@
+Rails.application.routes.draw do
+  get '/admin'                => 'admin#index'
+  post '/admin'               => 'admin#login'
+  delete '/admin'             => 'admin#logout'
+
+  get '/admin/coaches'        => 'admin#coaches'
+  get '/admin/new_coach'      => 'admin#new_coach_form'
+  post '/admin/new_coach'     => 'admin#new_coach'
+  delete '/admin/coaches/:id' => 'admin#delete_coach'
+
+  root 'home#index'
+end

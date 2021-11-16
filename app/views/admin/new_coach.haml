@@ -1,0 +1,32 @@
+
+= form_with url: '/admin/new_coach', local: true do |form|
+  %h1 Insira os dados do novo coach que você quer cadastrar:
+  %p
+    = form.label :username, 'Login:'
+    %br/
+    = form.text_field :username
+  %p
+    = form.label :name, 'Nome:'
+    %br/
+    = form.text_field :name
+  %p
+    = form.label :game, 'Jogo:'
+    %br/
+    = form.text_field :game
+  %p
+    = form.label :whatsapp, 'Whatsapp:'
+    %br/
+    = form.text_field :whatsapp
+  %p
+    = form.label :email, 'Email:'
+    %br/
+    = form.text_field :email
+  %p
+    = form.label :description, 'Descrição:'
+    %br/
+    = form.text_area :description
+  %p
+    = form.submit 'Entrar'
+
+- if @error
+  %h3 Credenciais inválidas

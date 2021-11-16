@@ -1,0 +1,10 @@
+
+= form_with url: 'admin', local: true do |form|
+  %h1 Insira a senha para logar como administrador
+  %p
+    = form.password_field :password
+  %p
+    = form.submit 'Entrar'
+
+- if @error
+  %h3 Credenciais inválidas

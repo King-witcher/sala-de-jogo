@@ -1,0 +1,30 @@
+%h1 Painel administrativo
+
+%a{ "data-method" => "DELETE", href: '/admin' } Logout
+
+%table
+  %tr
+    %td
+      %h3 Nome
+    %td
+      %h3 Jogo
+    %td
+      %h3 Email
+    %td
+      %h3 Whatsapp
+  - @coaches.each do |coach|
+    %tr
+      %td
+        = coach.name
+      %td
+        = coach.game
+      %td
+        = coach.email
+      %td
+        = coach.whatsapp
+      %td
+        %a{ "data-method" => "DELETE", href: "/admin/coaches/#{coach.id}" } Excluir
+  %tr
+    %td
+      %h3
+        = link_to 'Cadastrar novo', '/admin/new_coach'
