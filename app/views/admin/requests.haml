@@ -2,14 +2,16 @@
 
 = link_to 'Professores', '/admin/coaches'
 
-%a{ "data-method" => "DELETE", href: '/admin' } Logout
+%br/
+
+%a{ "data-method" => "DELETE", href: '/admin' } Sair
 
 %h2 Solicitações de aula
 
 %table
   %tr
     %th
-      %h3 Número do pedido
+      %h3 Pedido
     %th
       %h3 Cliente
     %th
@@ -52,5 +54,5 @@
         %td
           = form.collection_select :coach_id, @coaches_from[request.game], :id, :name
         %td
-          = form.submit "Confirmar", method: "post"
+          = form.submit "Confirmar"
           %a{ "data-method" => "DELETE", href: "/admin/requests/#{request.id}" } Excluir

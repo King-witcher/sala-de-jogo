@@ -11,7 +11,6 @@ class AdminController < ApplicationController
 
   def login
     password = ENV["ADMIN_PASSWORD"]
-    p password
 
     if params[:password] == password
       session[:admin] = true
@@ -62,7 +61,7 @@ class AdminController < ApplicationController
       game: params[:game],
     )
 
-    redirect_to '/admin/coaches', status: 201
+    redirect_to '/admin/coaches'
   end
 
   def delete_coach

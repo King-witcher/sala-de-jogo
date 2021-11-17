@@ -1,0 +1,18 @@
+%h1
+  = 'Faça login'
+
+= form_with url: '/coach/login', local: true do |form|
+  = form.label :username, 'Nome de usuário'
+  %br/
+  = form.text_field :username, value: @username
+  %br/
+  %br/
+  = form.label :password, 'Senha'
+  %br/
+  = form.password_field :password
+  %br/
+  = form.submit 'Entrar'
+
+- if @wrong_field
+  %p
+    = "As credenciais não conferem. Tente novamente."

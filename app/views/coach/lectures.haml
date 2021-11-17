@@ -1,0 +1,34 @@
+%h1 Painel do Professor (#{@coach.name})
+
+%a{ "data-method" => "DELETE", href: '/coach/login' } Sair
+
+%h2 Suas aulas pendentes
+
+%table
+  %tr
+    %th
+      %h3 Aula
+    %th
+      %h3 Cliente
+    %th
+      %h3 WhatsApp
+    %th
+      %h3 Tier da aula
+    %th
+      %h3 Data do pedido
+  - @lecture_list.each do |lecture|
+    = form_with url: "/coach/lectures", local:true do |form|
+      %tr
+        %td
+          = "#" + lecture.id.to_s
+        %td
+          = lecture.name
+        %td
+          = lecture.whatsapp
+        %td
+          = lecture.tier
+        %td
+          = lecture.created_at
+        %td
+          = form.hidden_field :lecture_id, value: lecture.id
+          = form.submit "Concluída"
