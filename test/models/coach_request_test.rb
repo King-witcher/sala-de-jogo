@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AdminPasswordTest < ActiveSupport::TestCase
+class CoachRequestTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

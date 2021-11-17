@@ -1,2 +1,0 @@
-class AdminPassword < ApplicationRecord
-end

@@ -3,21 +3,19 @@ class AdminController < ApplicationController
 
   def index
     if session[:admin]
-      redirect_to '/admin/coaches'
+      redirect_to '/admin/requests'
     else
       render :index
     end
   end
 
   def login
-    password = AdminPassword.all[0].value
+    password = ENV["ADMIN_PASSWORD"]
+    p password
 
-    if password == nil
-      render plain: 'Não há um administrador cadastrado.'
-
-    elsif params[:password] == password
+    if params[:password] == password
       session[:admin] = true
-      redirect_to '/admin/coaches'
+      redirect_to '/admin/requests'
 
     else
       @error = true
@@ -50,7 +48,7 @@ class AdminController < ApplicationController
 
   def new_coach
     unless session[:admin]
-      redirect_to '/admin'
+      redirect_to '/admin', status: 403
       return
     end
 
@@ -69,12 +67,34 @@ class AdminController < ApplicationController
 
   def delete_coach
     unless session[:admin]
-      redirect_to '/admin'
+      redirect_to '/admin', status: 403
       return
     end
 
     coach = Coach.find_by_id params[:id]
     coach.destroy
     redirect_to '/admin/coaches'
+  end
+
+  def requests
+    unless session[:admin]
+      redirect_to '/admin', status: 403
+      return
+    end
+
+    @coaches_from = {}
+
+    coaches = Coach.all
+
+    coaches.each do |coach|
+      if @coaches_from[coach.game] == nil
+        @coaches_from[coach.game] = [ coach ]
+      else
+        @coaches_from[coach.game] << coach
+      end
+    end
+
+    @requests = CoachRequest.order created_at: :desc
+    render :requests
   end
 end

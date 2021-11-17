@@ -1,7 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  password: MyString
+  name: MyString
+  whatsapp: MyString
+  tier: 
 
 two:
-  password: MyString
+  name: MyString
+  whatsapp: MyString
+  tier: 

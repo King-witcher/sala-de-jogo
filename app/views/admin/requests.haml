@@ -1,0 +1,56 @@
+%h1 Painel administrativo
+
+= link_to 'Professores', '/admin/coaches'
+
+%a{ "data-method" => "DELETE", href: '/admin' } Logout
+
+%h2 Solicitações de aula
+
+%table
+  %tr
+    %td
+      %h3 Número do pedido
+    %td
+      %h3 Cliente
+    %td
+      %h3 CPF
+    %td
+      %h3 Email
+    %td
+      %h3 Whatsapp
+    %td
+      %h3 Jogo
+    %td
+      %h3 Descrição
+    %td
+      %h3 Tier
+    %td
+      %h3 Data do pedido
+    %td
+      %h3 Professor
+  - @requests.each do |request|
+    %tr
+      %td
+        = "#" + request.id.to_s
+      %td
+        = request.name
+      %td
+        = request.cpf
+      %td
+        = request.email
+      %td
+        = request.whatsapp
+      %td
+        = request.game
+      %td
+        = request.description
+      %td
+        = request.tier
+      %td
+        = request.created_at
+      %td
+        %select
+          - if @coaches_from[request.game] != nil
+            - @coaches_from[request.game].each do |coach|
+              %option
+                = coach.name
