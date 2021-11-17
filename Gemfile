@@ -10,6 +10,7 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'haml'
+gem 'pg', '~> 1.2', '>= 1.2.3'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
@@ -29,10 +30,6 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-end
-
-group :production do
-  gem 'pg', '~> 1.2', '>= 1.2.3'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
