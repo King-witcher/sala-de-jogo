@@ -62,7 +62,7 @@ class AdminController < ApplicationController
       game: params[:game],
     )
 
-    redirect_to '/admin/coaches'
+    redirect_to '/admin/coaches', status: 201
   end
 
   def delete_coach
@@ -96,5 +96,34 @@ class AdminController < ApplicationController
 
     @requests = CoachRequest.order created_at: :desc
     render :requests
+  end
+
+  #POST admin/requests/:id
+  def accept_request
+    unless session[:admin]
+      redirect_to '/admin', status: 403
+      return
+    end
+
+    request = CoachRequest.find_by_id params[:id]
+    coach = Coach.find_by_id params[:coach_id]
+
+    PendingLecture.create coach: coach, name: request.name, whatsapp: request.whatsapp, tier: request.tier, created_at: request.created_at
+    request.destroy
+
+    redirect_to '/admin/requests'
+  end
+
+  #DELETE admin/requests/:id
+  def delete_request
+    unless session[:admin]
+      redirect_to '/admin/requests', status: 403
+      return
+    end
+
+    request = CoachRequest.find_by_id params[:id]
+    request.destroy
+
+    redirect_to '/admin/requests'
   end
 end

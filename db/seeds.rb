@@ -48,7 +48,7 @@ CoachRequest.create(
   game: 'League of Legends',
   description: 'asjdfaos aspodifjas descrição',
   cpf: '123.452.614-3',
-  tier: 3
+  tier: 2
 )
 
 CoachRequest.create(
@@ -88,5 +88,5 @@ CoachRequest.create(
   game: 'League of Legends',
   description: 'Ow mano soube que o Giuseppe eh mo bom, me da uma aula ae',
   cpf: 'n tenho, sou coreano',
-  tier: 3
+  tier: 1000
 )

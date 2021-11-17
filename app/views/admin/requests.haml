@@ -8,49 +8,49 @@
 
 %table
   %tr
-    %td
+    %th
       %h3 Número do pedido
-    %td
+    %th
       %h3 Cliente
-    %td
+    %th
       %h3 CPF
-    %td
+    %th
       %h3 Email
-    %td
+    %th
       %h3 Whatsapp
-    %td
+    %th
       %h3 Jogo
-    %td
+    %th
       %h3 Descrição
-    %td
+    %th
       %h3 Tier
-    %td
+    %th
       %h3 Data do pedido
-    %td
+    %th
       %h3 Professor
   - @requests.each do |request|
-    %tr
-      %td
-        = "#" + request.id.to_s
-      %td
-        = request.name
-      %td
-        = request.cpf
-      %td
-        = request.email
-      %td
-        = request.whatsapp
-      %td
-        = request.game
-      %td
-        = request.description
-      %td
-        = request.tier
-      %td
-        = request.created_at
-      %td
-        %select
-          - if @coaches_from[request.game] != nil
-            - @coaches_from[request.game].each do |coach|
-              %option
-                = coach.name
+    = form_with url: "/admin/requests/#{request.id}", local:true do |form|
+      %tr
+        %td
+          = "#" + request.id.to_s
+        %td
+          = request.name
+        %td
+          = request.cpf
+        %td
+          = request.email
+        %td
+          = request.whatsapp
+        %td
+          = request.game
+        %td
+          = request.description
+        %td
+          = request.tier
+        %td
+          = request.created_at
+        %td
+          = form.collection_select :coach_id, @coaches_from[request.game], :id, :name
+        %td
+          = form.submit "Confirmar", method: "post"
+          %a{ "data-method" => "DELETE", href: "/admin/requests/#{request.id}" } Excluir

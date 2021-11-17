@@ -6,6 +6,10 @@
     %br/
     = form.text_field :username
   %p
+    = form.label :password, 'Senha:'
+    %br/
+    = form.text_field :password, value: '123456', disabled: true
+  %p
     = form.label :name, 'Nome:'
     %br/
     = form.text_field :name
@@ -20,7 +24,7 @@
   %p
     = form.label :email, 'Email:'
     %br/
-    = form.text_field :email
+    = form.email_field :email
   %p
     = form.label :description, 'Descrição:'
     %br/

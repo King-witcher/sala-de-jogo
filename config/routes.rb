@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   delete '/admin/coaches/:id'   => 'admin#delete_coach'
 
   get '/admin/requests'         => 'admin#requests'
-  post '/admin/requests/accept' => ''
+  post '/admin/requests/:id'    => 'admin#accept_request'
+  delete '/admin/requests/:id'  => 'admin#delete_request'
 
   root 'home#index'
 end
