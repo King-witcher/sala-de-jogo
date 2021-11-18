@@ -1,7 +1,7 @@
 class RequestLectureController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  $prices = [30, 35, 40]
+  $prices = [0, 30, 35, 40]
 
   def index
     @game_options = []
