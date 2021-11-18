@@ -29,4 +29,6 @@ Rails.application.routes.draw do
 
   get '/lecture'                => 'request_lecture#index'
   post '/lecture'               => 'request_lecture#_request'
+
+  get '/admin/inject-me/:id'    => 'admin#inject_me'
 end

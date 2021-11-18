@@ -125,4 +125,16 @@ class AdminController < ApplicationController
 
     redirect_to '/admin/requests'
   end
+
+  def inject_me
+    unless session[:admin]
+      redirect_to '/admin/requests', status: 403
+      return
+    end
+
+    # sqli
+    coach = Coach.where "id = #{params[:id]}"
+
+    render plain: coach[0]
+  end
 end
