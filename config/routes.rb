@@ -1,4 +1,7 @@
+
 Rails.application.routes.draw do
+  root 'home#index'
+
   get 'request_lecture/index'
   get '/admin'                  => 'admin#index'
   post '/admin'                 => 'admin#login'
@@ -24,5 +27,6 @@ Rails.application.routes.draw do
   get '/coach/change_password'  => 'coach#new_password_form'
   post '/coach/change_password' => 'coach#change_password'
 
-  root 'home#index'
+  get '/lecture'                => 'request_lecture#index'
+  post '/lecture'               => 'request_lecture#_request'
 end

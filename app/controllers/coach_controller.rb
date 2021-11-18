@@ -49,7 +49,7 @@ class CoachController < ApplicationController
     redirect_to '/'
   end
 
-  # GET
+  # GET /coach/lectures
   def lectures
     if session[:coach_id] == nil
       redirect_to '/coach/login'
@@ -59,10 +59,13 @@ class CoachController < ApplicationController
     @coach = Coach.find_by_id session[:coach_id]
     @lecture_list = PendingLecture.where coach: @coach
 
+    if @coach.password == '123456'
+      @bad_password = true
+    end
     render :lectures
   end
 
-  # POST coach/lectures
+  # POST /coach/lectures
   def finish_lecture
     if session[:coach_id] == nil
       redirect_to '/coach/login'
@@ -74,7 +77,7 @@ class CoachController < ApplicationController
     redirect_to '/coach/lectures'
   end
 
-  # GET coach/change_password
+  # GET /coach/change_password
   def new_password_form
     if session[:coach_id] == nil
       redirect_to '/coach/login'
@@ -84,7 +87,7 @@ class CoachController < ApplicationController
     render :new_password_form
   end
 
-  # POST coach/change_password
+  # POST /coach/change_password
   def change_password
     if session[:coach_id] == nil
       redirect_to '/coach/login'

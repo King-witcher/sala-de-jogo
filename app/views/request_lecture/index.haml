@@ -1,0 +1,43 @@
+%h1 Solicitar aula
+%hr/
+= form_with url: '/lecture', local: true do |form|
+  %h2 Descreva o que você quer
+  %br/
+  = form.label :game, "Escolha um jogo"
+  %br/
+  = form.select :game, @game_options
+  %br/
+  %br/
+  = form.label :tier, 'Escolha um tier:'
+  %br/
+  = form.select :tier, [['Iniciante', '1'], ['Intermediário', '2'], ['Avançado', '3']], selected: '2'
+  %br/
+  %br/
+  = form.label :description, 'Descrição (opcional):'
+  %br/
+  = form.text_area :description
+  %br/
+  %hr/
+  %h2 Identifique-se
+  %br/
+  = form.label :name, 'Nome:'
+  %br/
+  = form.text_field :name
+  %br/
+  %br/
+  = form.label :email, 'Email:'
+  %br/
+  = form.text_field :name
+  %br/
+  %br/
+  = form.label :whatsapp, 'WhatsApp:'
+  %br/
+  = form.text_field :whatsapp
+  %br/
+  %br/
+  = form.label :cpf, 'CPF:'
+  %br/
+  = form.text_field :cpf
+  %br/
+  %br/
+  = form.submit "Pedir aula"

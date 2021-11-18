@@ -8,12 +8,30 @@
 
 Coach.create(
   email: 'asdf@yopmail.com',
-  username: 'coachxadrez',
+  username: 'magnoscarlos',
   password: '123456',
   name: 'Magnos Carlos',
   whatsapp: '(00)12345-6788',
   game: 'Xadrez'
 )
+Coach.create(
+  email: 'asdf@yopmail.com',
+  username: 'magoscalos',
+  password: '123456',
+  name: 'Magos Calos',
+  whatsapp: '(00)12345-6788',
+  game: 'Xadrez'
+)
+
+Coach.create(
+  email: 'kacnapob@yopmail.com',
+  username: 'fakerfake',
+  password: '123456',
+  name: 'Faker fake',
+  whatsapp: '(00)12745-6788',
+  game: 'League of Legends'
+)
+
 Coach.create(
   email: 'kacnapob@yopmail.com',
   username: 'coachxadrez',
@@ -26,7 +44,7 @@ Coach.create(
 Coach.create(
   name: 'Giuseppe Lanna',
   email: 'giuseppe@yopmail.com',
-  username: 'pikao',
+  username: 'giuseppelanna',
   password: '123456',
   whatsapp: '(11) 00000-1111',
   game: 'League of Legends',
@@ -35,7 +53,7 @@ Coach.create(
 Coach.create(
   name: 'BRTT',
   email: 'brtt@yopmail.com',
-  username: 'pikao',
+  username: 'brtt',
   password: '123456',
   whatsapp: '(11) 00000-1111',
   game: 'League of Legends',

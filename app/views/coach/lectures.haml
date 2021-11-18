@@ -1,5 +1,14 @@
 %h1 Painel do Professor (#{@coach.name})
 
+- if @bad_password
+  %a{href: "/coach/change_password"}
+    %font{color: "#d11", size: "7"}
+      %b Muda essa senha pelo amor de deus
+- else
+  = link_to 'Mudar senha', '/coach/change_password'
+
+%br/
+
 %a{ "data-method" => "DELETE", href: '/coach/login' } Sair
 
 %h2 Suas aulas pendentes
